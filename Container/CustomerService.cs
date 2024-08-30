@@ -12,10 +12,12 @@ namespace LearnAPI.Container
     {
         private readonly LearnDataContext context;
         private readonly IMapper mapper;
-        public CustomerService(LearnDataContext context, IMapper mapper)
+        private readonly ILogger<CustomerService> logger;
+        public CustomerService(LearnDataContext context, IMapper mapper,ILogger<CustomerService> logger)
         {
             this.context = context;
             this.mapper = mapper;
+            this.logger = logger;
         }
 
         public async Task<APIResponse> Create(CustomerModal data)
@@ -23,6 +25,7 @@ namespace LearnAPI.Container
             APIResponse response = new APIResponse();
             try
             {
+                this.logger.LogInformation("Create Begins");
                 TblCustomer _customer = this.mapper.Map<CustomerModal, TblCustomer>(data);
                 await this.context.TblCustomers.AddAsync(_customer);
                 await this.context.SaveChangesAsync();
@@ -33,6 +36,7 @@ namespace LearnAPI.Container
             {
                 response.ResponseCode = 400;
                 response.Errormessage = ex.Message;
+                this.logger.LogError(ex.Message,ex);
             }
             return response;
         }
@@ -51,7 +55,7 @@ namespace LearnAPI.Container
         public async Task<CustomerModal> Getbycode(string code)
         {
             CustomerModal _response = new CustomerModal();
-            var _data = await this.context.TblCustomers.FindAsync();
+            var _data = await this.context.TblCustomers.FindAsync(code);
             if(_data != null)
             {
                 _response = this.mapper.Map<TblCustomer, CustomerModal>(_data);

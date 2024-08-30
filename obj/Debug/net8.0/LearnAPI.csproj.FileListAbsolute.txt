@@ -136,3 +136,13 @@
 /Users/home/Desktop/LearnAPI/obj/Debug/net8.0/LearnAPI.pdb
 /Users/home/Desktop/LearnAPI/obj/Debug/net8.0/LearnAPI.genruntimeconfig.cache
 /Users/home/Desktop/LearnAPI/obj/Debug/net8.0/ref/LearnAPI.dll
+/Users/home/Desktop/LearnAPI/obj/Debug/net8.0/LearnAPI.sourcelink.json
+/Users/home/Desktop/LearnAPI/bin/Debug/net8.0/Serilog.dll
+/Users/home/Desktop/LearnAPI/bin/Debug/net8.0/Serilog.AspNetCore.dll
+/Users/home/Desktop/LearnAPI/bin/Debug/net8.0/Serilog.Extensions.Hosting.dll
+/Users/home/Desktop/LearnAPI/bin/Debug/net8.0/Serilog.Extensions.Logging.dll
+/Users/home/Desktop/LearnAPI/bin/Debug/net8.0/Serilog.Formatting.Compact.dll
+/Users/home/Desktop/LearnAPI/bin/Debug/net8.0/Serilog.Settings.Configuration.dll
+/Users/home/Desktop/LearnAPI/bin/Debug/net8.0/Serilog.Sinks.Console.dll
+/Users/home/Desktop/LearnAPI/bin/Debug/net8.0/Serilog.Sinks.Debug.dll
+/Users/home/Desktop/LearnAPI/bin/Debug/net8.0/Serilog.Sinks.File.dll
