@@ -201,3 +201,11 @@ System.ArgumentNullException: Value cannot be null. (Parameter 'value')
 2024-08-31 20:58:21.652 +07:00 [WRN] Failed to determine the https port for redirect.
 2024-08-31 21:48:16.839 +07:00 [WRN] Failed to determine the https port for redirect.
 2024-08-31 22:16:12.380 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-08-31 22:40:42.354 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-08-31 22:43:19.522 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-08-31 22:46:10.548 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-08-31 22:49:24.711 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-08-31 22:52:12.496 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-08-31 22:57:30.932 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-08-31 22:59:13.504 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-08-31 23:00:50.641 +07:00 [WRN] Failed to determine the https port for redirect.

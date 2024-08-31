@@ -148,3 +148,4 @@
 /Users/home/Desktop/LearnAPI/bin/Debug/net8.0/Serilog.Sinks.File.dll
 /Users/home/Desktop/LearnAPI/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/home/Desktop/LearnAPI/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+/Users/home/Desktop/LearnAPI/bin/Debug/net8.0/LearnAPI.staticwebassets.runtime.json
