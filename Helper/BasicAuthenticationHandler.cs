@@ -43,7 +43,7 @@ namespace LearnAPI.Helper
                 }
                 else
                 {
-                    return AuthenticateResult.Fail("UnAutorized");
+                    return AuthenticateResult.Fail("Unauthorized");
                 }
             }
             else

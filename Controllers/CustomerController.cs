@@ -21,6 +21,7 @@ namespace LearnAPI.Controllers
             this.service = service;
         }
 
+        [AllowAnonymous]
         //[EnableCors("corspolicy1")]
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
