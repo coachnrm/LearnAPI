@@ -6,6 +6,7 @@ using LearnAPI.Service;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Microsoft.AspNetCore.RateLimiting;
+using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<ICustomerService, CustomerService>();
 builder.Services.AddDbContext<LearnDataContext>(o =>
 o.UseSqlServer(builder.Configuration.GetConnectionString("apicon")));
+
+//builder.Services.AddAuthentication("BasicAuthentication").AddSchema<AuthenticationSchemeOptions,BasicAuthenticationHandler>("BasicAuthentication",null);
 
 var automapper = new MapperConfiguration(item => item.AddProfile(new AutoMapperHandler()));
 IMapper mapper = automapper.CreateMapper();
@@ -68,6 +71,8 @@ if (app.Environment.IsDevelopment())
 app.UseCors();
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

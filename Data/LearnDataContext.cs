@@ -11,5 +11,7 @@ namespace LearnAPI.Data
         }
 
         public DbSet<TblCustomer> TblCustomers {get; set;}
+        public DbSet<TblUser> TblUsers {get; set;}
+        public DbSet<TblRefreshToken> TblRefreshTokens {get; set;}
     }
 }

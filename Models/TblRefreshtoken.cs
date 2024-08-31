@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace LearnAPI.Models
 {
     [Table("tbl_refreshtoken")]
-    public partial class TblRefreshtoken
+    public partial class TblRefreshToken
     {
         [Key]
         [Column("userid")]

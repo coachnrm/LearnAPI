@@ -3,9 +3,11 @@ using LearnAPI.Service;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LearnAPI.Controllers
 {
+    [Authorize]
     //[DisableCors]
     [EnableRateLimiting("fixedwindow")]
     [Route("api/[controller]")]

@@ -18,9 +18,38 @@ namespace LearnAPI.Helper
             this.context = context;
         }
 
-        protected override Task<AuthenticateResult> HandleAuthenticateAsync()
+        protected async override Task<AuthenticateResult> HandleAuthenticateAsync()
         {
-            throw new NotImplementedException();
+           if (!Request.Headers.ContainsKey("Authorization"))
+            {
+                return AuthenticateResult.Fail("No header found");
+            }
+            var headervalue = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
+            if (headervalue != null)
+            {
+                var bytes = Convert.FromBase64String(headervalue.Parameter);
+                string credentials=Encoding.UTF8.GetString(bytes);
+                string[] array = credentials.Split(":");
+                string username = array[0];
+                string password = array[1];
+                var user =await this.context.TblUsers.FirstOrDefaultAsync(item => item.Username == username && item.Password == password);
+                if (user != null)
+                {
+                    var claim = new[] { new Claim(ClaimTypes.Name, user.Username) };
+                    var identity = new ClaimsIdentity(claim, Scheme.Name);
+                    var principal = new ClaimsPrincipal(identity);
+                    var ticket = new AuthenticationTicket(principal, Scheme.Name);
+                    return AuthenticateResult.Success(ticket);
+                }
+                else
+                {
+                    return AuthenticateResult.Fail("UnAutorized");
+                }
+            }
+            else
+            {
+                return AuthenticateResult.Fail("Empty header");
+            }
         }
     }
 }
