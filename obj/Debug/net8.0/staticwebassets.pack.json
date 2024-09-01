@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/home/Desktop/LearnAPI/wwwroot/Upload/product/002/IMG_0131.JPG",
+      "PackagePath": "staticwebassets/Upload/product/002/IMG_0131.JPG"
+    },
+    {
+      "Id": "/Users/home/Desktop/LearnAPI/wwwroot/Upload/product/002/IMG_7457.JPG",
+      "PackagePath": "staticwebassets/Upload/product/002/IMG_7457.JPG"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.LearnAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.LearnAPI.props",
+      "PackagePath": "build\\LearnAPI.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.LearnAPI.props",
+      "PackagePath": "buildMultiTargeting\\LearnAPI.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.LearnAPI.props",
+      "PackagePath": "buildTransitive\\LearnAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8GrgsDYhHfXBsQDIxJG04VUR/kmpGyES92QCYuzsGpI=",
+  "Hash": "2f6bdK1Brc+9AlO5bJ/qXfEZAr755IRkk6yKjEP5sls=",
   "Source": "LearnAPI",
   "BasePath": "_content/LearnAPI",
   "Mode": "Default",
@@ -15,5 +15,44 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "/Users/home/Desktop/LearnAPI/wwwroot/Upload/product/002/IMG_0131.JPG",
+      "SourceId": "LearnAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/home/Desktop/LearnAPI/wwwroot/",
+      "BasePath": "_content/LearnAPI",
+      "RelativePath": "Upload/product/002/IMG_0131.JPG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Upload/product/002/IMG_0131.JPG"
+    },
+    {
+      "Identity": "/Users/home/Desktop/LearnAPI/wwwroot/Upload/product/002/IMG_7457.JPG",
+      "SourceId": "LearnAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/home/Desktop/LearnAPI/wwwroot/",
+      "BasePath": "_content/LearnAPI",
+      "RelativePath": "Upload/product/002/IMG_7457.JPG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Upload/product/002/IMG_7457.JPG"
+    }
+  ]
 }
