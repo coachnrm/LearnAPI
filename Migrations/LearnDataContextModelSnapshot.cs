@@ -56,6 +56,52 @@ namespace LearnAPI.Migrations
                     b.ToTable("tbl_customer");
                 });
 
+            modelBuilder.Entity("LearnAPI.Models.TblProduct", b =>
+                {
+                    b.Property<string>("Code")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("code");
+
+                    b.Property<string>("Name")
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(max)")
+                        .HasColumnName("name");
+
+                    b.Property<decimal?>("Price")
+                        .HasColumnType("decimal(18, 2)")
+                        .HasColumnName("price");
+
+                    b.HasKey("Code");
+
+                    b.ToTable("tbl_product");
+                });
+
+            modelBuilder.Entity("LearnAPI.Models.TblProductimage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Productcode")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("productcode");
+
+                    b.Property<byte[]>("Productimage")
+                        .HasColumnType("image")
+                        .HasColumnName("productimage");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tbl_productimage");
+                });
+
             modelBuilder.Entity("LearnAPI.Models.TblRefreshToken", b =>
                 {
                     b.Property<string>("Userid")

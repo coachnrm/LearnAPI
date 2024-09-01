@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using LearnAPI.Helper;
+using LearnAPI.Data;
 
 namespace LearnAPI.Controllers
 {
@@ -8,9 +10,11 @@ namespace LearnAPI.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IWebHostEnvironment environment;
-        public ProductController(IWebHostEnvironment environment)
+        private readonly LearnDataContext context;
+        public ProductController(IWebHostEnvironment environment, LearnDataContext context)
         {
             this.environment = environment;
+            this.context = context;
         }
 
         [HttpPut("UploadImage")]
@@ -215,6 +219,89 @@ namespace LearnAPI.Controllers
                 return NotFound();
             }
     
+        }
+
+        [HttpPut("DBMultiUploadImage")]
+        public async Task<IActionResult> DBMultiUploadImage(IFormFileCollection filecollection, string productcode)
+        {
+            APIResponse response=new APIResponse();
+            int passcount = 0; int errorcount = 0;
+            try
+            {
+                
+                foreach (var file in filecollection)
+                {
+                    using(MemoryStream stream = new MemoryStream())
+                    {
+                        await file.CopyToAsync(stream);
+                        this.context.TblProductimages.Add(new Models.TblProductimage()
+                        {
+                            Productcode = productcode,
+                            Productimage = stream.ToArray()
+                        });
+                        await this.context.SaveChangesAsync();
+                        passcount++;
+                    }
+                } 
+            }
+            catch (Exception ex)
+            {
+                errorcount++;
+                response.Errormessage=ex.Message;
+            }
+            response.ResponseCode = 200;
+            response.Result = passcount+"Files uploaded &"+errorcount+" files failed";
+            return Ok(response);
+        }
+
+        [HttpGet("GetDBMultiImage")]
+        public async Task<IActionResult> GetDBMultiImage(string productcode)
+        {
+            List<string> Imageurl = new List<string>();
+            try
+            {
+                var _productimage=this.context.TblProductimages.Where(item=>item.Productcode==productcode).ToList();
+                if(_productimage!=null && _productimage.Count>0)
+                {
+                    _productimage.ForEach(item =>
+                    {
+                        Imageurl.Add(Convert.ToBase64String(item.Productimage));
+                    });
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+            }
+            catch (Exception ex)
+            {
+            }
+            return Ok(Imageurl);
+
+        }
+
+        [HttpGet("dbdownload")]
+        public async Task<IActionResult> dbdownload(string productcode)
+        {
+            List<string> Imageurl = new List<string>();
+            try
+            {
+
+                var _productimage = await this.context.TblProductimages.FirstOrDefaultAsync(item => item.Productcode == productcode);
+                if (_productimage != null )
+                {
+                    return File(_productimage.Productimage, "image/png", productcode + ".png");
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
         }
 
         [NonAction]

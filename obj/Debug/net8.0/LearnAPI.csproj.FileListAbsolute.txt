@@ -149,3 +149,10 @@
 /Users/home/Desktop/LearnAPI/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/home/Desktop/LearnAPI/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
 /Users/home/Desktop/LearnAPI/bin/Debug/net8.0/LearnAPI.staticwebassets.runtime.json
+/Users/home/Desktop/LearnAPI/bin/Debug/net8.0/ClosedXML.dll
+/Users/home/Desktop/LearnAPI/bin/Debug/net8.0/DocumentFormat.OpenXml.dll
+/Users/home/Desktop/LearnAPI/bin/Debug/net8.0/ExcelNumberFormat.dll
+/Users/home/Desktop/LearnAPI/bin/Debug/net8.0/SixLabors.Fonts.dll
+/Users/home/Desktop/LearnAPI/bin/Debug/net8.0/System.IO.Packaging.dll
+/Users/home/Desktop/LearnAPI/bin/Debug/net8.0/ClosedXML.Parser.dll
+/Users/home/Desktop/LearnAPI/bin/Debug/net8.0/RBush.dll
