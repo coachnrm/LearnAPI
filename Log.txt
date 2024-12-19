@@ -233,3 +233,19 @@ System.ArgumentNullException: Value cannot be null. (Parameter 'value')
 2024-09-01 16:30:00.235 +07:00 [WRN] Failed to determine the https port for redirect.
 2024-09-01 16:31:40.486 +07:00 [WRN] Failed to determine the https port for redirect.
 2024-09-01 16:51:52.821 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-12-19 15:45:03.277 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-12-19 15:51:50.042 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-12-19 15:56:30.455 +07:00 [ERR] Failed executing DbCommand (107ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [tbl_customer] (
+    [Code] varchar(50) NOT NULL,
+    [Name] varchar(50) NOT NULL,
+    [Email] varchar(50) NULL,
+    [Phone] varchar(50) NULL,
+    [Creditlimit] decimal(18,2) NULL,
+    [IsActive] bit NULL,
+    CONSTRAINT [PK_tbl_customer] PRIMARY KEY ([Code])
+);
+2024-12-19 15:57:20.643 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-12-19 16:04:33.697 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-12-19 16:10:12.470 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-12-19 16:20:56.966 +07:00 [WRN] Failed to determine the https port for redirect.

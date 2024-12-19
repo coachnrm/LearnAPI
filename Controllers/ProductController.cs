@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LearnAPI.Helper;
 using LearnAPI.Data;
+using LearnAPI.Models;
 
 namespace LearnAPI.Controllers
 {
@@ -48,6 +49,65 @@ namespace LearnAPI.Controllers
             return Ok(response);
         }
 
+       [HttpPost("UploadImage")]
+        public async Task<IActionResult> UploadImage2(IFormFile formFile, string productcode)
+        {
+            APIResponse response = new APIResponse();
+            try
+            {
+                if (formFile == null || string.IsNullOrEmpty(productcode))
+                {
+                    response.ResponseCode = 400;
+                    response.Result = "File or product code is missing.";
+                    return BadRequest(response);
+                }
+
+                // Save the file to the server's file system
+                string Filepath = GetFilepath(productcode);
+                if (!System.IO.Directory.Exists(Filepath))
+                {
+                    System.IO.Directory.CreateDirectory(Filepath);
+                }
+
+                string imagepath = Path.Combine(Filepath, productcode + ".png");
+                if (System.IO.File.Exists(imagepath))
+                {
+                    System.IO.File.Delete(imagepath);
+                }
+
+                byte[] imageBytes;
+                using (var memoryStream = new MemoryStream())
+                {
+                    await formFile.CopyToAsync(memoryStream);
+                    imageBytes = memoryStream.ToArray();
+                }
+
+                // Save the file locally
+                await System.IO.File.WriteAllBytesAsync(imagepath, imageBytes);
+
+                // Save the image to the database
+                var productImage = new TblProductimage
+                {
+                    Productcode = productcode,
+                    Productimage = imageBytes
+                };
+
+                context.TblProductimages.Add(productImage);
+                await context.SaveChangesAsync();
+
+                response.ResponseCode = 200;
+                response.Result = "Image uploaded successfully.";
+            }
+            catch (Exception ex)
+            {
+                response.ResponseCode = 500;
+                response.Errormessage = ex.Message;
+            }
+
+            return Ok(response);
+        }
+
+
         [HttpPut("MultiUploadImage")]
         public async Task<IActionResult> MultiUploadImage(IFormFileCollection filecollection, string productcode)
         {
@@ -81,6 +141,79 @@ namespace LearnAPI.Controllers
             }
             response.ResponseCode = 200;
             response.Result = passcount+"Files uploaded &"+errorcount+" files failed";
+            return Ok(response);
+        }
+
+        [HttpPost("MultiUploadImage")]
+        public async Task<IActionResult> MultiUploadImage2(IFormFileCollection filecollection, string productcode)
+        {
+            APIResponse response = new APIResponse();
+            int passcount = 0;
+            int errorcount = 0;
+
+            try
+            {
+                if (filecollection == null || filecollection.Count == 0 || string.IsNullOrEmpty(productcode))
+                {
+                    response.ResponseCode = 400;
+                    response.Result = "Files or product code is missing.";
+                    return BadRequest(response);
+                }
+
+                string Filepath = GetFilepath(productcode);
+                if (!System.IO.Directory.Exists(Filepath))
+                {
+                    System.IO.Directory.CreateDirectory(Filepath);
+                }
+
+                foreach (var file in filecollection)
+                {
+                    try
+                    {
+                        // Save the file to the file system
+                        string imagepath = Path.Combine(Filepath, file.FileName);
+                        if (System.IO.File.Exists(imagepath))
+                        {
+                            System.IO.File.Delete(imagepath);
+                        }
+
+                        byte[] imageBytes;
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(memoryStream);
+                            imageBytes = memoryStream.ToArray();
+                        }
+
+                        // Save the file locally
+                        await System.IO.File.WriteAllBytesAsync(imagepath, imageBytes);
+
+                        // Save the image to the database
+                        var productImage = new TblProductimage
+                        {
+                            Productcode = productcode,
+                            Productimage = imageBytes
+                        };
+
+                        context.TblProductimages.Add(productImage);
+                        await context.SaveChangesAsync();
+
+                        passcount++;
+                    }
+                    catch (Exception)
+                    {
+                        errorcount++;
+                    }
+                }
+
+                response.ResponseCode = 200;
+                response.Result = $"{passcount} files uploaded successfully, {errorcount} files failed.";
+            }
+            catch (Exception ex)
+            {
+                response.ResponseCode = 500;
+                response.Errormessage = ex.Message;
+            }
+
             return Ok(response);
         }
 

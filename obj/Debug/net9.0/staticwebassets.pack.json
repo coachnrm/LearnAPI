@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\LearnAPI\\wwwroot\\Upload\\product\\0001\\0001.png",
+      "PackagePath": "staticwebassets\\Upload\\product\\0001\\0001.png"
+    },
+    {
+      "Id": "D:\\LearnAPI\\wwwroot\\Upload\\product\\0002\\0002.png",
+      "PackagePath": "staticwebassets\\Upload\\product\\0002\\0002.png"
+    },
+    {
+      "Id": "D:\\LearnAPI\\wwwroot\\Upload\\product\\0003\\0003.png",
+      "PackagePath": "staticwebassets\\Upload\\product\\0003\\0003.png"
+    },
+    {
+      "Id": "D:\\LearnAPI\\wwwroot\\Upload\\product\\0004\\0004.png",
+      "PackagePath": "staticwebassets\\Upload\\product\\0004\\0004.png"
+    },
+    {
+      "Id": "D:\\LearnAPI\\wwwroot\\Upload\\product\\0005\\0005.png",
+      "PackagePath": "staticwebassets\\Upload\\product\\0005\\0005.png"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.LearnAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.LearnAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.LearnAPI.props",
+      "PackagePath": "build\\LearnAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.LearnAPI.props",
+      "PackagePath": "buildMultiTargeting\\LearnAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.LearnAPI.props",
+      "PackagePath": "buildTransitive\\LearnAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
