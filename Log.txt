@@ -249,3 +249,4 @@ CREATE TABLE [tbl_customer] (
 2024-12-19 16:04:33.697 +07:00 [WRN] Failed to determine the https port for redirect.
 2024-12-19 16:10:12.470 +07:00 [WRN] Failed to determine the https port for redirect.
 2024-12-19 16:20:56.966 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-12-23 13:07:46.086 +07:00 [WRN] Failed to determine the https port for redirect.

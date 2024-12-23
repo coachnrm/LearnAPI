@@ -15,5 +15,6 @@ namespace LearnAPI.Data
         public DbSet<TblRefreshToken> TblRefreshTokens {get; set;}
         public DbSet<TblProduct> TblProducts {get; set;}
         public DbSet<TblProductimage> TblProductimages {get; set;}
+        public DbSet<FileDetail> FileDetails {get; set;}
     }
 }
