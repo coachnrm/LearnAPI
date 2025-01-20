@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LearnAPI\\LearnAPI.csproj": {}
+    "/Users/home/Desktop/LearnAPI/LearnAPI.csproj": {}
   },
   "projects": {
-    "D:\\LearnAPI\\LearnAPI.csproj": {
+    "/Users/home/Desktop/LearnAPI/LearnAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LearnAPI\\LearnAPI.csproj",
+        "projectUniqueName": "/Users/home/Desktop/LearnAPI/LearnAPI.csproj",
         "projectName": "LearnAPI",
-        "projectPath": "D:\\LearnAPI\\LearnAPI.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\LearnAPI\\obj\\",
+        "projectPath": "/Users/home/Desktop/LearnAPI/LearnAPI.csproj",
+        "packagesPath": "/Users/home/.nuget/packages/",
+        "outputPath": "/Users/home/Desktop/LearnAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/home/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -92,13 +93,25 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
+            "Serilog": {
+              "target": "Package",
+              "version": "[4.2.1-dev-02337, )"
+            },
             "Serilog.AspNetCore": {
               "target": "Package",
               "version": "[9.0.0, )"
             },
+            "Serilog.Settings.Configuration": {
+              "target": "Package",
+              "version": "[9.0.1-dev-02317, )"
+            },
             "Serilog.Sinks.File": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Serilog.Sinks.MSSqlServer": {
+              "target": "Package",
+              "version": "[8.1.1-dev-00120, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -136,7 +149,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

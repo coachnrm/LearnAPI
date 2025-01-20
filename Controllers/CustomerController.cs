@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.AspNetCore.Authorization;
 using ClosedXML.Excel;
 using System.Data;
+using Serilog;
 
 namespace LearnAPI.Controllers
 {
@@ -19,10 +20,12 @@ namespace LearnAPI.Controllers
     {
         private readonly ICustomerService service;
         private readonly IWebHostEnvironment environment;
+        private readonly ILogger<CustomerController> _logger;
 
-        public CustomerController(ICustomerService service, IWebHostEnvironment environment)
+        public CustomerController(ICustomerService service, IWebHostEnvironment environment, ILogger<CustomerController> logger)
         {
             this.service = service;
+            _logger = logger;
         }
 
         [AllowAnonymous]
@@ -30,6 +33,7 @@ namespace LearnAPI.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
+            _logger.LogInformation("get all customers");
             var data = await this.service.Getall();
             if(data == null)
             {

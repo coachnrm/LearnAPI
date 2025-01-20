@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Serilog.Sinks.MSSqlServer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -76,12 +77,21 @@ builder.Services.AddRateLimiter(_ => _.AddFixedWindowLimiter(policyName: "fixedw
 
 string logpath = builder.Configuration.GetSection("Logging:Logpath").Value;
 var _logger = new LoggerConfiguration()
-    .MinimumLevel.Information()
-    .MinimumLevel.Override("microsoft", Serilog.Events.LogEventLevel.Warning)
-    .Enrich.FromLogContext()
-    .WriteTo.File(logpath)
-    .CreateLogger();
+   .MinimumLevel.Information()
+   .MinimumLevel.Override("microsoft", Serilog.Events.LogEventLevel.Warning)
+   .Enrich.FromLogContext()
+   .WriteTo.File(logpath)
+   .CreateLogger();
 builder.Logging.AddSerilog(_logger);
+
+// Add Serilog to the application
+builder.Host.UseSerilog();
+
+builder.Host.UseSerilog((hostingContext, loggerConfig) =>
+{
+   loggerConfig.ReadFrom.Configuration(hostingContext.Configuration); 
+});
+
 
 var _jwtsetting = builder.Configuration.GetSection("JwtSettings");
 builder.Services.Configure<JwtSettings>(_jwtsetting);
@@ -105,6 +115,8 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.UseSerilogRequestLogging(); // Enable Serilog request logging
 
 app.MapControllers();
 

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tZKKq4BH6FQdftAkUtoWIEBJ2Jxrmbngowjz94v0JzY=",
+  "Hash": "aH2sg0HiFPbeVVP6hznXBMZHCzzomNu0gRLjbMbHSzU=",
   "Source": "LearnAPI",
   "BasePath": "_content/LearnAPI",
   "Mode": "Default",
@@ -8,9 +8,9 @@
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "LearnAPI\\wwwroot",
+      "Name": "LearnAPI/wwwroot",
       "Source": "LearnAPI",
-      "ContentRoot": "D:\\LearnAPI\\wwwroot\\",
+      "ContentRoot": "/Users/home/Desktop/LearnAPI/wwwroot/",
       "BasePath": "_content/LearnAPI",
       "Pattern": "**"
     }

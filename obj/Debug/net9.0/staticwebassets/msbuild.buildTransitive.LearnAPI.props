@@ -1,3 +1,3 @@
 ﻿<Project>
-  <Import Project="..\buildMultiTargeting\LearnAPI.props" />
+  <Import Project="../buildMultiTargeting/LearnAPI.props" />
 </Project>
